@@ -7,7 +7,7 @@
 #content {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 50px 300px 400px;
+    grid-template-rows: auto 300px 400px;
     grid-row-gap: 10px;
     grid-column-gap: 10px;
     padding: 10px;
@@ -23,7 +23,7 @@
 .header {
     grid-column-start: 1;
     grid-column-end: 6;
-    display: flex;
+    display: grid;
 }
 .header > * {
     margin: 10px;
