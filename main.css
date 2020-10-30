@@ -1,7 +1,6 @@
 * {
     box-sizing: border-box;
 }
-
  /* https://www.w3schools.com/cssref/pr_grid-template-rows.asp for dealing with grids, rest on lab 1 chapter 7 */
 #content {
     display: grid;
@@ -18,9 +17,16 @@
     background-color: rgb(245, 245, 240);
     box-shadow: 0px 0px 5px 5px lightgray;
 }
+ /* https://www.w3schools.com/css/css3_flexbox.asp and https://www.w3schools.com/css/css_align.asp for flex model of boxes*/
 .header {
     grid-column-start: 1;
     grid-column-end: 6;
+    display: flex;
+}
+.header > * {
+    margin: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 .list {
     grid-row-start: 2;
