@@ -1,0 +1,37 @@
+* {
+    box-sizing: border-box;
+}
+
+ /* https://www.w3schools.com/cssref/pr_grid-template-rows.asp */
+#content {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 50px 300px 400px;
+    grid-row-gap: 15px;
+    grid-column-gap: 15px;
+}
+#content > * {
+    border-style: solid;
+}
+.header {
+    grid-column-start: 1;
+    grid-column-end: 6;
+}
+.list {
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
+.info {
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+.map {
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+.paintings {
+    grid-column-start: 4;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
