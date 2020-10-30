@@ -2,16 +2,21 @@
     box-sizing: border-box;
 }
 
- /* https://www.w3schools.com/cssref/pr_grid-template-rows.asp */
+ /* https://www.w3schools.com/cssref/pr_grid-template-rows.asp for dealing with grids, rest on lab 1 chapter 7*/
 #content {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 50px 300px 400px;
-    grid-row-gap: 15px;
-    grid-column-gap: 15px;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    padding: 10px;
+    margin: 20px;
 }
+ /* https://www.w3schools.com/colors/colors_picker.asp for choosing colours, really useful
+    Background shadows and such are under lab 1 chapter 4*/
 #content > * {
-    border-style: solid;
+    background-color: rgb(245, 245, 240);
+    box-shadow: 0px 0px 5px 5px lightgray;
 }
 .header {
     grid-column-start: 1;
