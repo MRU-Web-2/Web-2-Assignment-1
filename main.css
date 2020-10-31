@@ -158,7 +158,7 @@ h4{
     https://stackoverflow.com/questions/11444148/disable-scroll-bar-in-header-but-not-in-content-for-a-web-page to fix my scrollbar*/
 #listOfGalleries {
   
-  overflow: scroll;
+  overflow: auto;
 }
 /* width */
 ::-webkit-scrollbar {
