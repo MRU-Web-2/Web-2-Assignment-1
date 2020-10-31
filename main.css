@@ -129,6 +129,11 @@
     grid-row-end: 4;
 }
 
+.list{
+    display: inline;
+    height: 900px;
+}
+
 h1{
     color: rgb(0, 0, 0);
     font-variant: small-caps;
