@@ -96,8 +96,8 @@
  /* https://www.w3schools.com/colors/colors_picker.asp for choosing colours, really useful
     Background shadows and such are under lab 1 chapter 4 */
 #content > * {
-    background-color: rgba(42, 151, 214, 0.842);
-    box-shadow: 0px 0px 5px 5px rgb(71, 110, 146);
+    background-color: rgb(136, 202, 247);
+    box-shadow: 0px 0px 5px 5px rgb(0, 0, 0);
 }
  /* https://www.w3schools.com/css/css3_flexbox.asp and https://www.w3schools.com/css/css_align.asp for flex model of boxes*/
 .header {
@@ -106,9 +106,10 @@
     display: grid;
 }
 .header > * {
-    margin: 10px;
+    /*margin: 10px;*/
     margin-top: auto;
     margin-bottom: auto;
+    background-color: rgba(203, 102, 243, 0.842)
 }
 .list {
     grid-row-start: 2;
@@ -132,6 +133,12 @@
 .list{
     display: inline;
     height: 900px;
+    list-style-type: none;
+}
+
+ul > li{
+    list-style-type: none;
+    display: flex;
 }
 
 h1{
