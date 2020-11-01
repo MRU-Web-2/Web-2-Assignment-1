@@ -133,12 +133,9 @@
 }
 
 .list{
-  
     display: inline-block;
-    height: fit-content;
     padding-right: 20px;
 }
-
 
 ul > li{
     /*https://stackoverflow.com/questions/3998412/how-to-style-a-list-of-links-with-css*/
@@ -230,4 +227,8 @@ h2{
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: white;
+}
+
+.list > .main , .list > .main > *{
+  height: 600px;
 }
