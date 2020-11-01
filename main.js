@@ -57,6 +57,7 @@ function addGalleryInfo(gallery) {
     let galleryWebsite = document.createElement('li');
     let a = document.createElement('a');
     galleryWebsite.appendChild(a);
+    galleryWebsite.id = "listLink";
 
     galleryName.textContent = gallery.GalleryName;
     galleryNativeName.textContent = gallery.GalleryNativeName;
