@@ -285,4 +285,11 @@ li a {
 table {
   border-spacing: 10px;
   text-align: left;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+tableTitles:hover {
+  background-color  : #2586d7;
+  color             : #fff;
+  cursor: pointer;
 }
