@@ -184,7 +184,13 @@ li a, li {
   text-decoration   : none;
 }
 
-li:hover  , a:hover {
+#listOfGalleries > li:hover  {
+  background-color  : #2586d7;
+  color             : #fff;
+  cursor: pointer;
+} 
+
+a:hover {
   /*https://stackoverflow.com/questions/3998412/how-to-style-a-list-of-links-with-css 
     https://stackoverflow.com/questions/47276388/css-change-child-on-parent-hover-only-single-child 
     https://www.w3schools.com/cssref/sel_hover.asp */
@@ -288,14 +294,21 @@ table {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+#tableTitles{
+  text-decoration: underline;
+}
+
 #tableTitles:hover {
   cursor: pointer;
   color: #5c5c5c ;
+  text-decoration: underline;
+  text-decoration-color:grey ;
 }
 
 #Title:hover {
   cursor: pointer;
   color: #5c5c5c ;
+  
 }
 
 #Artist:hover{
