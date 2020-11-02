@@ -86,6 +86,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
                             document.querySelector("#paintingsTable").addEventListener("click", (e) => {
                                 console.log(e.target);
+                                if ( e.target.id == "Title" || e.target.id == "Artist" || e.target.id == "Year") {
+                                    console.log(e.target.id);
+                                }
                             });
 
                         })
@@ -157,8 +160,11 @@ function createTable(paintings) {
     let year = document.createElement('th');
 
     artist.textContent = "Artist";
+    artist.id = "Artist";
     title.textContent = "Title";
+    title.id = "Title";
     year.textContent = "Year";
+    year.id = "Year";
 
     head.appendChild(painting);
     head.appendChild(artist);
