@@ -84,27 +84,40 @@ document.addEventListener("DOMContentLoaded", function() {
                             createTable(paintings);
                             document.querySelector('#Paintings').style.display = "block";
 
-
-                            let oldPaintings = [];
-                            let newPaintings = [];
+                            let newPaintings = paintings;
                             document.querySelector("#paintingsTable").addEventListener("click", (e) => {
                                 /* https://www.w3schools.com/jsref/jsref_reverse.asp */
                                 if (e.target.id == "Title") {
                                     newPaintings = paintings.sort( function (a, b) {
-                                        return `${a.Title}` > `${b.Title}` ? 1 : -1;
+                                        return a.Title > b.Title ? 1 : -1;
                                     });
                                 } else if (e.target.id == "Artist") {
                                     newPaintings = paintings.sort( function (a, b) {
-                                        return `${a.FirstName} ${a.LastName}` >= `${b.FirstName} ${b.LastName}` ? 1 : -1;
+                                        if (`${a.FirstName} ${a.LastName}` != `${b.FirstName} ${b.LastName}`) {
+                                            return `${a.FirstName} ${a.LastName}` > `${b.FirstName} ${b.LastName}` ? 1 : -1;
+                                        } else {
+                                            return a.Title > b.Title ? 1 : -1;
+                                        }
                                     });
                                 } else if (e.target.id == "Year") {
                                     newPaintings = paintings.sort( function (a, b) {
-                                        return `${a.YearOfWork}` > `${b.YearOfWork}` ? 1 : -1;
+                                        if (a.YearOfWork != b.YearOfWork) {
+                                            return a.YearOfWork > b.YearOfWork ? 1 : -1;
+                                        } else {
+                                            return a.Title > b.Title ? 1 : -1;
+                                        }
                                     });
                                 }
-                                console.log(newPaintings === oldPaintings);
                                 createTable(newPaintings);
-                                oldPaintings = newPaintings;
+
+                                console.log(e.target);
+                                if ( e.target.id == "tableTitles") {
+                                    let mainContent = document.querySelectorAll("#MAIN")
+                                    for (let m of mainContent) {
+                                        m.style.display = "none";
+                                    }
+
+                                }
                             });
 
                         })
@@ -175,6 +188,7 @@ function createTable(paintings) {
     let title = document.createElement('th');
     let year = document.createElement('th');
 
+    head.id = "headOfTable";
     artist.textContent = "Artist";
     artist.id = "Artist";
     title.textContent = "Title";
