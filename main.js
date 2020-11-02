@@ -31,6 +31,15 @@ document.addEventListener("DOMContentLoaded", function() {
     fetch(galleriesURL)
         .then( r => r.json() )
         .then( galleries => {
+            function initMap() {
+                console.log("Test");
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: {lat: 50, lng: -40},
+                    mapTypeId: 'satellite',
+                    zoom: 2
+                });
+            }
+            
             document.querySelector('#listOfGalleries').innerHTML = "";
             document.querySelector('#spinner1').style.display = 'none';
             document.querySelector('.list > .main').style.display = "block";
