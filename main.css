@@ -344,6 +344,11 @@ margin-top: 450px;
 margin-right: 650px;
   }
 
+#button:hover{
+  cursor: pointer;
+  color: #000000
+}
+
 #mainSinglePainting {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
