@@ -81,12 +81,11 @@ document.addEventListener("DOMContentLoaded", function() {
                             createMarker( map, gallery.Latitude, gallery.Longitude, gallery.GalleryCity );
                             document.querySelector('#map').style.display = "block";
                             document.querySelector('#spinner3').style.display = 'none';
-                      
+
                             createTable(paintings);
                             document.querySelector('#Paintings').style.display = "block";
-                            
                         })
-                        .catch( err => console.error(err) )
+                        .catch( err => console.error(err) );
 
                 }
             });
@@ -164,6 +163,23 @@ function createTable(paintings) {
     table.appendChild(head);
 
     for (let p of paintings) {
-        console.log(p);
+        let newHead = document.createElement('tr');
+        let newPainting = document.createElement('th');
+        let newArtist = document.createElement('th');
+        let newTitle = document.createElement('th');
+        let newYear = document.createElement('th');
+
+        let img = document.createElement('img');
+        img.src = `https://res.cloudinary.com/funwebdev/image/upload/w_75/art/paintings/square/${p.ImageFileName}`;
+        newPainting.appendChild(img);
+        newArtist.textContent = `${p.FirstName} ${p.LastName}`;
+        newTitle.textContent = p.Title;
+        newYear.textContent = p.YearOfWork;
+
+        newHead.appendChild(newPainting);
+        newHead.appendChild(newArtist);
+        newHead.appendChild(newTitle);
+        newHead.appendChild(newYear);
+        table.appendChild(newHead);
     }
 }

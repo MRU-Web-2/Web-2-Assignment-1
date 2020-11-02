@@ -272,3 +272,12 @@ li a {
 #map {
   height: 320px;
 }
+
+#Paintings {
+  height: 600px;
+}
+#paintingsTable {
+  display: block;
+  height: 590px;
+  overflow: auto;
+}
