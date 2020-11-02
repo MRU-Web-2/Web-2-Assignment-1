@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
     const galleriesURL = "https://www.randyconnolly.com/funwebdev/3rd/api/art/galleries.php";
     
+
+    
     document.querySelector('.lds-spinner').style.display = "inline-block";
     const mainContent = document.querySelectorAll('.main');
     for (let m of mainContent) {
@@ -20,12 +22,14 @@ document.addEventListener("DOMContentLoaded", function() {
                     document.querySelector('#spinner2').style.display = 'block';
                     fetch(`https://www.randyconnolly.com/funwebdev/3rd/api/art/paintings.php?gallery=${e.target.value}`)
                         .then( r => r.json() )
-                        .then( g => {
+                        .then( paintings => {
                             document.querySelector('#galleryInfo').innerHTML = "";
                             document.querySelector('#spinner2').style.display = 'none';
                             document.querySelector('.info > .main').style.display = 'block';
                             let gallery = galleries.find( gallery => gallery.GalleryID == e.target.value);
                             addGalleryInfo(gallery);
+                            updateTable(data, ['id', 'artist'])
+
                         })
                         .catch( err => console.error(err) )
 
