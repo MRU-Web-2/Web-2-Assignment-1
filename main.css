@@ -290,4 +290,20 @@ table {
 
 #tableTitles:hover {
   cursor: pointer;
+  color: #5c5c5c ;
+}
+
+#Title:hover {
+  cursor: pointer;
+  color: #5c5c5c ;
+}
+
+#Artist:hover{
+  cursor: pointer;
+  color: #5c5c5c ;
+}
+
+#Year:hover{
+  cursor: pointer;
+  color: #5c5c5c ;
 }
