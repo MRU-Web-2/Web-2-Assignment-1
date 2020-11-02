@@ -1,6 +1,5 @@
 var map;
 function initMap() {
-    console.log("Test");
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 50, lng: -40},
         mapTypeId: 'satellite',
@@ -84,6 +83,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
                             createTable(paintings);
                             document.querySelector('#Paintings').style.display = "block";
+
+                            document.querySelector("#paintingsTable").addEventListener("click", (e) => {
+                                console.log(e.target);
+                            });
+
                         })
                         .catch( err => console.error(err) );
 
@@ -163,6 +167,7 @@ function createTable(paintings) {
     table.appendChild(head);
 
     for (let p of paintings) {
+        console.log(p);
         let newHead = document.createElement('tr');
         let newPainting = document.createElement('td');
         let newArtist = document.createElement('td');
@@ -174,6 +179,8 @@ function createTable(paintings) {
         newPainting.appendChild(img);
         newArtist.textContent = `${p.FirstName} ${p.LastName}`;
         newTitle.textContent = p.Title;
+        newTitle.id = "tableTitles";
+        newTitle.value = p.PaintingID;
         newYear.textContent = p.YearOfWork;
 
         newHead.appendChild(newPainting);
