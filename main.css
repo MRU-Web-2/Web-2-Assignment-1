@@ -354,12 +354,11 @@ table {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   height: 600px;
+  padding: 20px;
 }
 #singlePaintingContent {
   grid-column-start: 2;
   grid-column-end: 4;
   height: 600px;
-}
-#image {
-  margin: auto 20px;
+  padding: 20px;
 }
