@@ -281,3 +281,8 @@ li a {
   height: 590px;
   overflow: auto;
 }
+
+table {
+  border-spacing: 10px;
+  text-align: left;
+}
