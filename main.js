@@ -248,11 +248,20 @@ function createSinglePainting(p) {
     main.innerHTML = "";
     let h2 = document.createElement('h2');
     h2.textContent = "Painting Title";
+    let button = document.createElement('button');
+    button.type = "button";
+    button.id = "button";
+    button.textContent = "Close";
 
     let img = document.createElement('img');
     img.src = `https://res.cloudinary.com/funwebdev/image/upload/w_600/art/paintings/square/${p.ImageFileName}`;
 
-    main.appendChild(h2);
+
     imageMain.appendChild(img);
+
+    main.appendChild(h2);
+    
+    main.appendChild(button);
+
     console.log(p);
 }
