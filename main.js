@@ -256,7 +256,12 @@ function createSinglePainting(p) {
     artistName.id = "subtitle";
     artistName.textContent = `${p.FirstName} ${p.LastName}`;
     let mainContent = document.createElement('div');
-    mainContent.textContent = `${p.YearOfWork}, ${p.Medium}, ${p.Width}, ${p.Height}, ${p.CopyrightText}, ${p.GalleryName}, ${p.GalleryCity}`;
+    mainContent.textContent = `${p.YearOfWork}, ${p.Medium}, ${p.Width}, ${p.Height}, ${p.CopyrightText}, ${p.GalleryName}, ${p.GalleryCity} `;
+    let a = document.createElement('a');
+    a.textContent = p.MuseumLink;
+    a.href = p.MuseumLink;
+    mainContent.appendChild(a);
+    mainContent.appendChild(document.createTextNode(`, ${p.Description}`));
 
 
     let img = document.createElement('img');
