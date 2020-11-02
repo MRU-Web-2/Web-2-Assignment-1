@@ -253,7 +253,10 @@ function createSinglePainting(p) {
     button.id = "button";
     button.textContent = "Close";
     let artistName = document.createElement('div');
+    artistName.id = "subtitle";
     artistName.textContent = `${p.FirstName} ${p.LastName}`;
+    let mainContent = document.createElement('div');
+    mainContent.textContent = `${p.YearOfWork}, ${p.Medium}, ${p.Width}, ${p.Height}, ${p.CopyrightText}, ${p.GalleryName}, ${p.GalleryCity}`;
 
 
     let img = document.createElement('img');
@@ -264,6 +267,7 @@ function createSinglePainting(p) {
 
     main.appendChild(h2);
     main.appendChild(artistName);
+    main.appendChild(mainContent);
     main.appendChild(button);
 
     console.log(p);
