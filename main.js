@@ -1,3 +1,21 @@
+var map;
+function initMap() {
+    console.log("Test");
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 50, lng: -40},
+        mapTypeId: 'satellite',
+        zoom: 2
+    });
+}
+
+function createMarker(map, latitude, longitude, city) {
+    let imageLatLong = {lat:  latitude, lng: longitude };
+    let marker = new google.maps.Marker({
+        position: imageLatLong,
+        title: city,
+        map: map
+    });
+}
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -8,6 +26,8 @@ document.addEventListener("DOMContentLoaded", function() {
     for (let m of mainContent) {
         m.style.display = "none";
     }
+    document.querySelector('#spinner3').style.display = 'block';
+    
     fetch(galleriesURL)
         .then( r => r.json() )
         .then( galleries => {
@@ -16,30 +36,42 @@ document.addEventListener("DOMContentLoaded", function() {
             document.querySelector('.list > .main').style.display = "block";
             makeGalleriesAtList(galleries);
 
+            document.querySelector('#spinner3').style.display = 'none';
+            addMarkers(galleries);
+            document.querySelector('#map').style.display = "block";
+
+
+
             document.querySelector("#listOfGalleries").addEventListener("click", (e) => {
                 if ( e.target.value ) {
                     document.querySelector('.info > .main').style.display = 'none';
                     document.querySelector('#spinner2').style.display = 'block';
+                    document.querySelector('#spinner3').style.display = 'block';
+                    document.querySelector('#spinner4').style.display = 'block';
                     document.querySelector('#map').style.display = "none";
                     fetch(`https://www.randyconnolly.com/funwebdev/3rd/api/art/paintings.php?gallery=${e.target.value}`)
                         .then( r => r.json() )
                         .then( g => {
                             document.querySelector('#galleryInfo').innerHTML = "";
                             document.querySelector('#spinner2').style.display = 'none';
+                            document.querySelector('#spinner4').style.display = 'none';
                             document.querySelector('.info > .main').style.display = 'block';
-                            document.querySelector('#map').style.display = "block";
                             let gallery = galleries.find( gallery => gallery.GalleryID == e.target.value);
+                            
                             addGalleryInfo(gallery);
 
-                            var map;
-                            function initMap() {
-                                console.log("Test");
-                                map = new google.maps.Map(document.getElementById('map'), {
-                                    center: {lat: 41.89474, lng: 12.4839},
-                                    mapTypeId: 'satellite',
-                                    zoom: 18
-                                });
-                            }
+                            console.log(gallery);
+                            map = new google.maps.Map(document.getElementById('map'), {
+                                center: {lat: gallery.Latitude, lng: gallery.Longitude},
+                                mapTypeId: 'satellite',
+                                zoom: 18
+                            });
+                            map.setTilt(45);
+                            createMarker( map, gallery.Latitude, gallery.Longitude, gallery.GalleryCity );
+                            document.querySelector('#map').style.display = "block";
+                            document.querySelector('#spinner3').style.display = 'none';
+
+                            
                         })
                         .catch( err => console.error(err) )
 
@@ -57,6 +89,12 @@ function makeGalleriesAtList(galleries) {
         li.textContent = g.GalleryName;
         li.value = g.GalleryID;
         document.querySelector('#listOfGalleries').appendChild(li);
+    }
+}
+
+function addMarkers(galleries) {
+    for (let g of galleries) {
+        createMarker( map, g.Latitude, g.Longitude, g.GalleryCity );
     }
 }
 
