@@ -164,10 +164,10 @@ function createTable(paintings) {
 
     for (let p of paintings) {
         let newHead = document.createElement('tr');
-        let newPainting = document.createElement('th');
-        let newArtist = document.createElement('th');
-        let newTitle = document.createElement('th');
-        let newYear = document.createElement('th');
+        let newPainting = document.createElement('td');
+        let newArtist = document.createElement('td');
+        let newTitle = document.createElement('td');
+        let newYear = document.createElement('td');
 
         let img = document.createElement('img');
         img.src = `https://res.cloudinary.com/funwebdev/image/upload/w_75/art/paintings/square/${p.ImageFileName}`;
