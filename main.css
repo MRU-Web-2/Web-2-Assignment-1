@@ -121,6 +121,7 @@
 }
 .map {
     padding-left: 10px;
+    padding-right: 10px;
     grid-column-start: 2;
     grid-column-end: 4;
 }
@@ -243,4 +244,8 @@ li a {
 #listLink {
   padding: 0px;
   margin: 0px;
+}
+
+#map {
+  height: 320px;
 }

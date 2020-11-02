@@ -1,3 +1,13 @@
+var map;
+function initMap() {
+    console.log("Test");
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 41.89474, lng: 12.4839},
+        mapTypeId: 'satellite',
+        zoom: 18
+    });
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     const galleriesURL = "https://www.randyconnolly.com/funwebdev/3rd/api/art/galleries.php";
     
@@ -18,12 +28,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 if ( e.target.value ) {
                     document.querySelector('.info > .main').style.display = 'none';
                     document.querySelector('#spinner2').style.display = 'block';
+                    document.querySelector('#map').style.display = "none";
                     fetch(`https://www.randyconnolly.com/funwebdev/3rd/api/art/paintings.php?gallery=${e.target.value}`)
                         .then( r => r.json() )
                         .then( g => {
                             document.querySelector('#galleryInfo').innerHTML = "";
                             document.querySelector('#spinner2').style.display = 'none';
                             document.querySelector('.info > .main').style.display = 'block';
+                            document.querySelector('#map').style.display = "block";
                             let gallery = galleries.find( gallery => gallery.GalleryID == e.target.value);
                             addGalleryInfo(gallery);
                         })
