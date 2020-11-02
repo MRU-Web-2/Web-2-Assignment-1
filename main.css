@@ -341,8 +341,8 @@ table {
   border-color: #000000;
   font-size: 16px;
   border-radius: 12px;
-  position: relative;
-  bottom: 0;
+  position: absolute;
+  bottom: 150px;
 }
 
 #button:hover{
