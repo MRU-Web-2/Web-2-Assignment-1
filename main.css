@@ -341,10 +341,11 @@ display: inline-block;
 border-color: #000000;
 font-size: 16px;
 margin-top: 450px;
-margin-right: 700px;
+margin-right: 650px;
   }
 
 #mainSinglePainting {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  margin: 30px;
 }
