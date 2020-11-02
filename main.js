@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     document.querySelector('#spinner3').style.display = 'block';
                     document.querySelector('#spinner4').style.display = 'block';
                     document.querySelector('#map').style.display = "none";
+                    document.querySelector('#Paintings').style.display = "none";
                     fetch(`https://www.randyconnolly.com/funwebdev/3rd/api/art/paintings.php?gallery=${e.target.value}`)
                         .then( r => r.json() )
                         .then( paintings => {
@@ -71,7 +72,6 @@ document.addEventListener("DOMContentLoaded", function() {
                             
                             addGalleryInfo(gallery);
                       
-                            console.log(gallery);
                             map = new google.maps.Map(document.getElementById('map'), {
                                 center: {lat: gallery.Latitude, lng: gallery.Longitude},
                                 mapTypeId: 'satellite',
@@ -82,8 +82,9 @@ document.addEventListener("DOMContentLoaded", function() {
                             document.querySelector('#map').style.display = "block";
                             document.querySelector('#spinner3').style.display = 'none';
                       
-                      
-                            updateTable(data, ['id', 'artist'])
+                            createTable(paintings);
+                            document.querySelector('#Paintings').style.display = "block";
+                            
                         })
                         .catch( err => console.error(err) )
 
@@ -140,4 +141,29 @@ function addGalleryInfo(gallery) {
     info.appendChild(galleryAddress);
     info.appendChild(galleryCountry);
     info.appendChild(galleryWebsite);
+}
+
+ /* https://www.w3schools.com/html/html_tables.asp */
+function createTable(paintings) {
+    let table = document.querySelector("#paintingsTable");
+    table.innerHTML = "";
+    let head = document.createElement('tr');
+    let painting = document.createElement('th');
+    let artist = document.createElement('th');
+    let title = document.createElement('th');
+    let year = document.createElement('th');
+
+    artist.textContent = "Artist";
+    title.textContent = "Title";
+    year.textContent = "Year";
+
+    head.appendChild(painting);
+    head.appendChild(artist);
+    head.appendChild(title);
+    head.appendChild(year);
+    table.appendChild(head);
+
+    for (let p of paintings) {
+        console.log(p);
+    }
 }
