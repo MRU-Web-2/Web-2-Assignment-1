@@ -20,14 +20,8 @@ function createMarker(map, latitude, longitude, city) {
 document.addEventListener("DOMContentLoaded", function() {
     const galleriesURL = "https://www.randyconnolly.com/funwebdev/3rd/api/art/galleries.php";
 
-    document.querySelector("#button").addEventListener("click", (e) => {
-        let mainContent = document.querySelectorAll("#MAIN");
-        for (let m of mainContent) {
-            m.style.display = "block";
-        }
-        document.querySelector(".singlePainting").style.display = "none";
-    });
     
+
     document.querySelector('.lds-spinner').style.display = "inline-block";
     const mainContent = document.querySelectorAll('.main');
     for (let m of mainContent) {
@@ -39,7 +33,6 @@ document.addEventListener("DOMContentLoaded", function() {
         .then( r => r.json() )
         .then( galleries => {
             function initMap() {
-                console.log("Test");
                 map = new google.maps.Map(document.getElementById('map'), {
                     center: {lat: 50, lng: -40},
                     mapTypeId: 'satellite',
@@ -116,7 +109,6 @@ document.addEventListener("DOMContentLoaded", function() {
                                 }
                                 createTable(newPaintings);
 
-                                console.log(e.target);
                                 if ( e.target.id == "tableTitles") {
                                     let mainContent = document.querySelectorAll("#MAIN");
                                     for (let m of mainContent) {
@@ -124,6 +116,20 @@ document.addEventListener("DOMContentLoaded", function() {
                                     }
                                     document.querySelector(".singlePainting").style.display = "block";
 
+                                    for (let p of paintings) {
+                                        if (p.PaintingID == e.target.value) {
+                                            createSinglePainting(p);
+                                        }
+                                    }
+
+                                    document.querySelector("#button").addEventListener("click", (e) => {
+                                        let mainContent = document.querySelectorAll("#MAIN");
+                                        for (let m of mainContent) {
+                                            m.style.display = "block";
+                                        }
+                                        document.querySelector(".singlePainting").style.display = "none";
+                                        
+                                    });
                                 }
 
                                 
@@ -233,4 +239,20 @@ function createTable(paintings) {
         newHead.appendChild(newYear);
         table.appendChild(newHead);
     }
+}
+
+function createSinglePainting(p) {
+    let imageMain = document.querySelector("#image");
+    imageMain.innerHTML = "";
+    let main = document.querySelector('#singlePaintingContent');
+    main.innerHTML = "";
+    let h2 = document.createElement('h2');
+    h2.textContent = "Painting Title";
+
+    let img = document.createElement('img');
+    img.src = `https://res.cloudinary.com/funwebdev/image/upload/w_600/art/paintings/square/${p.ImageFileName}`;
+
+    main.appendChild(h2);
+    imageMain.appendChild(img);
+    console.log(p);
 }
