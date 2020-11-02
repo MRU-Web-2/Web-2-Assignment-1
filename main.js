@@ -247,11 +247,14 @@ function createSinglePainting(p) {
     let main = document.querySelector('#singlePaintingContent');
     main.innerHTML = "";
     let h2 = document.createElement('h2');
-    h2.textContent = "Painting Title";
+    h2.textContent = p.Title;
     let button = document.createElement('button');
     button.type = "button";
     button.id = "button";
     button.textContent = "Close";
+    let artistName = document.createElement('div');
+    artistName.textContent = `${p.FirstName} ${p.LastName}`;
+
 
     let img = document.createElement('img');
     img.src = `https://res.cloudinary.com/funwebdev/image/upload/w_600/art/paintings/square/${p.ImageFileName}`;
@@ -260,7 +263,7 @@ function createSinglePainting(p) {
     imageMain.appendChild(img);
 
     main.appendChild(h2);
-    
+    main.appendChild(artistName);
     main.appendChild(button);
 
     console.log(p);
