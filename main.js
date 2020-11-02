@@ -19,8 +19,14 @@ function createMarker(map, latitude, longitude, city) {
 
 document.addEventListener("DOMContentLoaded", function() {
     const galleriesURL = "https://www.randyconnolly.com/funwebdev/3rd/api/art/galleries.php";
-    
 
+    document.querySelector("#button").addEventListener("click", (e) => {
+        let mainContent = document.querySelectorAll("#MAIN");
+        for (let m of mainContent) {
+            m.style.display = "block";
+        }
+        document.querySelector(".singlePainting").style.display = "none";
+    });
     
     document.querySelector('.lds-spinner').style.display = "inline-block";
     const mainContent = document.querySelectorAll('.main');
@@ -117,8 +123,10 @@ document.addEventListener("DOMContentLoaded", function() {
                                         m.style.display = "none";
                                     }
                                     document.querySelector(".singlePainting").style.display = "block";
-                                    
+
                                 }
+
+                                
                             });
 
                         })
