@@ -112,11 +112,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
                                 console.log(e.target);
                                 if ( e.target.id == "tableTitles") {
-                                    let mainContent = document.querySelectorAll("#MAIN")
+                                    let mainContent = document.querySelectorAll("#MAIN");
                                     for (let m of mainContent) {
                                         m.style.display = "none";
                                     }
-
+                                    document.querySelector(".singlePainting").style.display = "block";
+                                    
                                 }
                             });
 
