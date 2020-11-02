@@ -288,8 +288,6 @@ table {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-tableTitles:hover {
-  background-color  : #2586d7;
-  color             : #fff;
+#tableTitles:hover {
   cursor: pointer;
 }
